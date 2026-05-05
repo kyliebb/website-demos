@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete Medical Services UK - Quality Healthcare Services in Darlington">
+    <meta name="keywords" content="medical services, healthcare, Darlington, UK">
+    <title>Complete Medical Services UK - Quality Healthcare</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background-color: #ffffff;
+        }
+
+        /* Header Styles */
+        header {
+            position: sticky;
+            top: 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #3B82F6;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: none;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1f2937;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #3B82F6;
+        }
+
+        .nav-toggle {
+            display: block;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #3B82F6;
+        }
+
+        .nav-toggle.active ~ .nav-links {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 2rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        @media (min-width: 768px) {
+            .nav-toggle {
+                display: none;
+            }
+
+            .nav-links {
+                display: flex;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #3B82F6 0%, #1e40af 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: #3B82F6;
+            padding: 0.875rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            background-color: #f3f4f6;
+        }
+
+        .cta-button-secondary {
+            display: inline-block;
+            background-color: transparent;
+            color: white;
+            padding: 0.875rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-left: 1rem;
+        }
+
+        .cta-button-secondary:hover {
+            background-color: white;
+            color: #3B82F6;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 3rem 1.5rem;
+                min-height: 400px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .cta-button-secondary {
+                display: block;
+                margin: 0.5rem 0;
+                margin-top: 0.5rem;
+            }
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1f2937;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: #f9fafb;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            border-left: 4px solid #3B82F6;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1);
+        }
+
+        .service-icon {
+            width: 3rem;
+            height: 3rem;
+            background-color: #3B82F6;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .service-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #1f2937;
+        }
+
+        .service-card p {
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            padding: 5rem 2rem;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1f2937;
+        }
+
+        .about-content p {
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .feature-check {
+            width: 2rem;
+            height: 2rem;
+            background-color: #3B82F6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .feature-item p {
+            margin: 0;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, #3B82F6 0%, #1e40af 100%);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            color: white;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-image h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+        }
+
+        .stars {
+            color: #fbbf24;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .testimonial-text {
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonial-role {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #3B82F6 0%, #1e40af 100%);
+            color: white;
+            padding: 5rem 2rem;
+            animation: fadeInUp 0.8s ease 0.5s both;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h3 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .contact-item p {
+            opacity: 0.9;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        .contact-cta {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-cta p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: #9ca3af;
+            padding: 2rem;
+            text-align: center;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .services {
+                padding: 3rem 1.5rem;
+            }
+
+            .about {
+                padding: 3rem 1.5rem;
+            }
+
+            .testimonials {
+                padding: 3rem 1.5rem;
+            }
+
+            .contact {
+                padding: 3rem 1.5rem;
+            }
+
+            .contact-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <nav>
+            <a href="#" class="logo">CMS UK</a>
+            <button class="nav-toggle" id="navToggle">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Quality Healthcare Services You Can Trust</h1>
+            <p>Complete Medical Services UK delivers excellence in healthcare with a trusted local approach to your wellbeing</p>
+            <a href="#contact" class="cta-button">Get Started Today</a>
+            <a href="#services" class="cta-button-secondary">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card scroll-animate">
+                <div class="service-icon">🏥</div>
+                <h3>Comprehensive Care</h3>
+                <p>Full-spectrum medical services designed to address all your healthcare needs in one trusted location.</p>
+            </div>
+            <div class="service-card scroll-animate">
+                <div class="service-icon">👨‍⚕️</div>
+                <h3>Expert Professionals</h3>
+                <p>Our experienced medical team is dedicated to providing the highest standard of care and attention.</p>
+            </div>
+            <div class="service-card scroll-animate">
+                <div class="service-icon">💊</div>
+                <h3>Quality Treatment</h3>
+                <p>Access to modern medical treatments and therapies delivered with excellence and precision.</p>
+            </div>
+            <div class="service-card scroll-animate">
+                <div class="service-icon">📋</div>
+                <h3>Patient Support</h3>
+                <p>Compassionate support throughout your healthcare journey with personalized care planning.</p>
+            </div>
+            <div class="service-card scroll-animate">
+                <div class="service-icon">🔬</div>
+                <h3>Advanced Facilities</h3>
+                <p>State-of-the-art medical equipment and facilities for accurate diagnosis and treatment.</p>
+            </div>
+            <div class="service-card scroll-animate">
+                <div class="service-icon">⏰</div>
+                <h3>Convenient Access</h3>
+                <p>Easy-to-reach location with flexible scheduling to fit your lifestyle and needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-content scroll-animate">
+                <h2>Why Choose Complete Medical Services UK?</h2>
+                <p>With years of experience serving the Darlington community, we've built our reputation on quality care and patient satisfaction. Our commitment to excellence drives everything we do.</p>
+                <p>We believe in providing comprehensive medical services with a personal touch, ensuring every patient receives the attention and care they deserve.</p>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <div class="feature-check">✓</div>
+                        <p><strong>Local Expertise</strong> - Deep understanding of community health needs</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-check">✓</div>
+                        <p><strong>Quality Focus</strong> - Excellence in every aspect of care delivery</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-check">✓</div>
+                        <p><strong>Trusted Service</strong> - Years of proven reliability and patient care</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-check">✓</div>
+                        <p><strong>Patient-Centered</strong> - Your health and comfort are our priority</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image scroll-animate">
+                <div>
+                    <h3>Excellence in Healthcare</h3>
+                    <p>Serving the Darlington community with dedication and professionalism</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <h2 class="section-title">What Our Patients Say</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card scroll-animate">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Exceptional service and professional medical care. The team at Complete Medical Services truly cares about patient wellbeing."</p>
+                <div class="testimonial-author">Sarah Johnson</div>
+                <div class="testimonial-role">Patient</div>
+            </div>
+            <div class="testimonial-card scroll-animate">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Impressed with the quality of care and attention to detail. A trustworthy medical services provider in our community."</p>
+                <div class="testimonial-author">Michael Davis</div>
+                <div class="testimonial-role">Patient</div>
+            </div>
+            <div class="testimonial-card scroll-animate">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Professional, friendly staff and excellent medical expertise. I wouldn't hesitate to recommend them to anyone."</p>
+                <div class="testimonial-author">Emma Wilson</div>
+                <div class="testimonial-role">Patient</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <h2 class="contact-title">Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-item scroll-animate">
+                    <div class="contact-icon">📍</div>
+                    <h3>Location</h3>
+                    <p>The Annex<br>42 Brinkburn Ave<br>Darlington<br>DL3 0JN<br>UK</p>
+                </div>
+                <div class="contact-item scroll-animate">
+                    <div class="contact-icon">📞</div>
+                    <h3>Phone</h3>
+                    <p><a href="tel:07970450737">07970 450737</a></p>
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem;">Available during business hours</p>
+                </div>
+                <div class="contact-item scroll-animate">
+                    <div class="contact-icon">🕐</div>
+                    <h3>Business Hours</h3>
+                    <p>Monday - Friday<br>09:00 - 17:30<br><br>Saturday<br>10:00 - 14:00</p>
+                </div>
+            </div>
+            <div class="contact-cta scroll-animate">
+                <p>Ready to experience quality healthcare? Contact us today to schedule your appointment or learn more about our services.</p>
+                <a href="tel:07970450737" class="cta-button">Call Now: 07970 450737</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Complete Medical Services UK. All rights reserved. Quality and Excellence in Healthcare.</p>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+        });
+
+        // Close menu when link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+            });
+        });
+
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-animate').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header shadow on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 0) {
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+            }
+        });
+    </script>
+</body>
+</html>
